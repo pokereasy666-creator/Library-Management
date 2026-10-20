@@ -1,8 +1,9 @@
 import os
 import tempfile
 
-# 必须在导入 app 之前设置：测试使用内存 SQLite 和临时上传目录
-os.environ["DATABASE_URL"] = "sqlite://"
+# 必须在导入 app 之前设置：默认使用内存 SQLite 和临时上传目录。
+# 测试会删表重建，所以只认专用的 TEST_DATABASE_URL，不会误用开发环境的 DATABASE_URL
+os.environ["DATABASE_URL"] = os.environ.get("TEST_DATABASE_URL", "sqlite://")
 os.environ["UPLOAD_DIR"] = tempfile.mkdtemp(prefix="library-test-uploads-")
 os.environ["JWT_SECRET"] = "test-secret-for-pytest-only-0123456789abcdef"
 os.environ["ADMIN_USERNAME"] = "admin"

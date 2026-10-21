@@ -54,6 +54,8 @@
 
 ## 本地运行
 
+> **Windows 用户**：双击根目录的 `setup.bat` 安装依赖，再双击 `start.bat` 启动；详细说明见 [docs/windows.md](docs/windows.md)。下面的命令是 Linux / macOS 写法。
+
 ### 后端
 
 ```bash
